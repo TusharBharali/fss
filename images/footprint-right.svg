@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 160" fill="currentColor">
+  <!-- Main sole -->
+  <path d="M52,38 C32,38 24,55 26,80 C27,98 38,105 38,120 C38,138 42,152 56,152 C70,152 76,138 76,118 C76,88 74,38 52,38 Z" />
+  <!-- Toes: Big toe to little toe -->
+  <ellipse cx="32" cy="22" rx="11" ry="14" transform="rotate(-8 32 22)" />
+  <ellipse cx="49" cy="17" rx="8" ry="11" transform="rotate(0 49 17)" />
+  <ellipse cx="65" cy="20" rx="7" ry="9.5" transform="rotate(8 65 20)" />
+  <ellipse cx="78" cy="26" rx="6" ry="8" transform="rotate(15 78 26)" />
+  <ellipse cx="88" cy="35" rx="5" ry="6.5" transform="rotate(22 88 35)" />
+</svg>

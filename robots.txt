@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /fss-admin/
+Disallow: /server/
+
+Sitemap: http://localhost/first%20steps/sitemap.xml

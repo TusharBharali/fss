@@ -1,0 +1,45 @@
+# First Steps Admin Panel — Apache Security & Upload Configuration
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect root directory to login
+    RewriteRule ^$ login.php [R=302,L]
+</IfModule>
+
+# Protect config.php from direct web access
+<Files "config.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# Block directory listing
+Options -Indexes
+
+# Prevent access to sensitive files
+<FilesMatch "\.(sql|log|env|htpasswd)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Enhanced PHP settings for smooth media uploads
+<IfModule mod_php.c>
+    php_value upload_max_filesize 32M
+    php_value post_max_size 35M
+    php_value memory_limit 256M
+    php_value max_execution_time 120
+    php_value max_input_time 120
+</IfModule>

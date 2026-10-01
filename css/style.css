@@ -1,0 +1,1033 @@
+/* ==========================================================================
+   First Steps Pre School - Premium Interactive Stylesheet
+   Crafted with joyful colors, playful typography, and rich micro-animations
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+    --fs-yellow: #FFD166;
+    --fs-yellow-light: #FFF2D1;
+    --fs-blue: #118AB2;
+    --fs-blue-light: #E0F4FB;
+    --fs-blue-dark: #0A5A75;
+    --fs-pink: #EF476F;
+    --fs-pink-light: #FFE3EA;
+    --fs-green: #06D6A0;
+    --fs-green-light: #E1FAF3;
+    --fs-purple: #8338EC;
+    --fs-purple-light: #F1E6FF;
+    --fs-orange: #FF9F1C;
+    --fs-orange-light: #FFF0DE;
+    --fs-bg: #FDF9F1;
+    --fs-card-bg: #FFFFFF;
+    --fs-text: #2B2D42;
+    --fs-text-muted: #5C627A;
+    --fs-border-radius-sm: 16px;
+    --fs-border-radius-md: 24px;
+    --fs-border-radius-lg: 36px;
+    --fs-border-radius-full: 9999px;
+    --fs-shadow-sm: 0 4px 15px rgba(17, 138, 178, 0.08);
+    --fs-shadow-md: 0 10px 30px rgba(17, 138, 178, 0.12);
+    --fs-shadow-lg: 0 20px 50px rgba(17, 138, 178, 0.16);
+    --fs-shadow-colored: 0 12px 30px rgba(239, 71, 111, 0.25);
+}
+
+/* Base Setup */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+body {
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--fs-bg);
+    color: var(--fs-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Responsive Media Constraints */
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-font,
+.font-heading {
+    font-family: 'Fredoka', cursive;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+}
+
+.font-fun {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* ==========================================================================
+   ANIMATIONS & KEYFRAMES (GEMINI CORE + ELEVATED SUITE)
+   ========================================================================== */
+
+/* 1. Rotating Sun */
+@keyframes rotateSun {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sun-anim {
+    animation: rotateSun 25s linear infinite;
+    transform-origin: center center;
+}
+
+/* Sun Ray Pulse */
+@keyframes pulseSunGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 15px rgba(255, 209, 102, 0.6));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 35px rgba(255, 209, 102, 0.95));
+    }
+}
+
+.sun-glow {
+    animation: pulseSunGlow 4s ease-in-out infinite;
+}
+
+/* 2. Floating Clouds */
+@keyframes floatCloud {
+    0% {
+        transform: translateX(-180px) translateY(0);
+    }
+
+    50% {
+        transform: translateX(50vw) translateY(-18px);
+    }
+
+    100% {
+        transform: translateX(105vw) translateY(0);
+    }
+}
+
+.cloud-anim-1 {
+    animation: floatCloud 28s linear infinite;
+}
+
+.cloud-anim-2 {
+    animation: floatCloud 38s linear infinite 4s;
+}
+
+.cloud-anim-3 {
+    animation: floatCloud 32s linear infinite 11s;
+}
+
+.cloud-anim-4 {
+    animation: floatCloud 45s linear infinite 18s;
+}
+
+/* 3. Button Pulse & Glow */
+@keyframes pulseBtn {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 71, 111, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 18px rgba(239, 71, 111, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 71, 111, 0);
+    }
+}
+
+.btn-pulse {
+    animation: pulseBtn 2.2s infinite;
+}
+
+@keyframes pulseBtnBlue {
+    0% {
+        box-shadow: 0 0 0 0 rgba(17, 138, 178, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 18px rgba(17, 138, 178, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(17, 138, 178, 0);
+    }
+}
+
+.btn-pulse-blue {
+    animation: pulseBtnBlue 2.2s infinite;
+}
+
+/* 4. Button Bounce on Hover */
+.btn-bounce {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.btn-bounce:hover {
+    transform: translateY(-6px) scale(1.04);
+}
+
+.btn-bounce:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* 5. Gentle Floating Decorations (Kite, Balloons, Stars) */
+@keyframes floatGentle {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-16px) rotate(4deg);
+    }
+}
+
+.float-gentle {
+    animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+@keyframes floatGentleAlt {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(-5deg);
+    }
+}
+
+.float-gentle-alt {
+    animation: floatGentleAlt 5.2s ease-in-out infinite 1.2s;
+}
+
+/* 6. Playful Wiggle */
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-8deg);
+    }
+
+    70% {
+        transform: rotate(8deg);
+    }
+}
+
+.wiggle-hover:hover {
+    animation: wiggle 0.6s ease-in-out infinite;
+}
+
+/* 7. Scroll Reveal Utility */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: 0.15s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.3s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.45s;
+}
+
+/* 8. Interactive Click Pop Bubbles */
+.bubble-particle {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    animation: bubblePop 0.8s forwards ease-out;
+    z-index: 9999;
+}
+
+@keyframes bubblePop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0.9;
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   UI COMPONENTS & PATTERNS
+   ========================================================================== */
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--fs-pink) 0%, #D81E5B 100%);
+    color: white;
+    font-family: 'Fredoka', cursive;
+    font-weight: 600;
+    padding: 0.85rem 2rem;
+    border-radius: var(--fs-border-radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(239, 71, 111, 0.35);
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--fs-blue) 0%, #0C7496 100%);
+    color: white;
+    font-family: 'Fredoka', cursive;
+    font-weight: 600;
+    padding: 0.85rem 2rem;
+    border-radius: var(--fs-border-radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(17, 138, 178, 0.3);
+    text-decoration: none;
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, var(--fs-yellow) 0%, var(--fs-orange) 100%);
+    color: var(--fs-text);
+    font-family: 'Fredoka', cursive;
+    font-weight: 700;
+    padding: 0.85rem 2rem;
+    border-radius: var(--fs-border-radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 159, 28, 0.3);
+    text-decoration: none;
+}
+
+.btn-outline-white {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    color: white;
+    border: 2px solid white;
+    font-family: 'Fredoka', cursive;
+    font-weight: 600;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--fs-border-radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: var(--fs-blue);
+}
+
+/* Wavy Section Dividers */
+.wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+
+@media (min-width: 768px) {
+    .wave-divider svg {
+        height: 90px;
+    }
+}
+
+/* Card Styling */
+.fs-card {
+    background: var(--fs-card-bg);
+    border-radius: var(--fs-border-radius-md);
+    box-shadow: var(--fs-shadow-sm);
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
+    border: 3px solid transparent;
+}
+
+.fs-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--fs-shadow-md);
+}
+
+/* Colorful Card Borders */
+.border-card-yellow {
+    border-color: var(--fs-yellow);
+}
+
+.border-card-pink {
+    border-color: var(--fs-pink);
+}
+
+.border-card-blue {
+    border-color: var(--fs-blue);
+}
+
+.border-card-green {
+    border-color: var(--fs-green);
+}
+
+.border-card-purple {
+    border-color: var(--fs-purple);
+}
+
+/* Playful Badge Pill */
+.fun-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1.1rem;
+    border-radius: var(--fs-border-radius-full);
+    font-family: 'Fredoka', cursive;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.fun-badge-yellow {
+    background-color: var(--fs-yellow-light);
+    color: #B37D00;
+}
+
+.fun-badge-pink {
+    background-color: var(--fs-pink-light);
+    color: var(--fs-pink);
+}
+
+.fun-badge-blue {
+    background-color: var(--fs-blue-light);
+    color: var(--fs-blue);
+}
+
+.fun-badge-green {
+    background-color: var(--fs-green-light);
+    color: #048C68;
+}
+
+.fun-badge-purple {
+    background-color: var(--fs-purple-light);
+    color: var(--fs-purple);
+}
+
+/* Facilities Circle Slider */
+.facilities-carousel-wrapper {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 10px;
+}
+
+.facilities-track {
+    display: flex;
+    gap: 25px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.facility-slide {
+    flex: 0 0 calc(100vw - 64px);
+    max-width: 320px;
+    background: white;
+    border-radius: var(--fs-border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--fs-shadow-sm);
+    text-align: center;
+    border: 3px solid var(--fs-yellow-light);
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 480px) {
+    .facility-slide {
+        flex: 0 0 300px;
+    }
+}
+
+@media (min-width: 640px) {
+    .facility-slide {
+        flex: 0 0 320px;
+    }
+}
+
+.facility-slide:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--fs-pink);
+    box-shadow: var(--fs-shadow-colored);
+}
+
+.facility-circle-img {
+    width: 170px;
+    height: 170px;
+    margin: 25px auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid var(--fs-yellow);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.facility-slide:hover .facility-circle-img {
+    transform: rotate(3deg) scale(1.08);
+}
+
+.facility-circle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Notice Board Bulletin Styling */
+.notice-pin-card {
+    position: relative;
+    background: #FFFDF7;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-left: 6px solid var(--fs-pink);
+    transition: transform 0.3s ease;
+}
+
+.notice-pin-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.notice-pin-icon {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    font-size: 1.5rem;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.2));
+}
+
+/* Interactive Star Rating */
+.rating-stars-interactive {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+}
+
+.rating-stars-interactive input {
+    display: none;
+}
+
+.rating-stars-interactive label {
+    font-size: 2rem;
+    color: #D1D5DB;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.rating-stars-interactive label:hover,
+.rating-stars-interactive label:hover~label,
+.rating-stars-interactive input:checked~label {
+    color: var(--fs-yellow);
+    transform: scale(1.15);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    background: white;
+    padding: 16px 24px;
+    font-family: 'Fredoka', cursive;
+    font-size: 1.2rem;
+    color: var(--fs-blue);
+    text-align: center;
+}
+
+/* Floating Utility Bar */
+.floating-actions {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.floating-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-btn:hover {
+    transform: scale(1.15) translateY(-3px);
+}
+
+.floating-btn-whatsapp {
+    background: #25D366;
+}
+
+.floating-btn-top {
+    background: var(--fs-pink);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.floating-btn-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.floating-btn-sound {
+    background: var(--fs-purple);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--fs-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--fs-yellow);
+    border-radius: 10px;
+    border: 2px solid var(--fs-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--fs-pink);
+}
+
+/* ==========================================================================
+   ANIMATED SCHOOL LOGO (Stepping Footprints Animation)
+   ========================================================================== */
+.animated-school-logo {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    user-select: none;
+}
+
+@keyframes stepInRed {
+
+    0%,
+    6% {
+        opacity: 0;
+        transform: translateY(-16px) scale(1.3) rotate(-8deg);
+        filter: drop-shadow(0 0 0 rgba(239, 71, 111, 0));
+    }
+
+    18% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 4px 10px rgba(239, 71, 111, 0.45));
+    }
+
+    22% {
+        transform: translateY(-2px) scale(1.04);
+    }
+
+    26%,
+    80% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 2px 5px rgba(239, 71, 111, 0.25));
+    }
+
+    92%,
+    100% {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.92);
+        filter: drop-shadow(0 0 0 rgba(239, 71, 111, 0));
+    }
+}
+
+@keyframes stepInYellow {
+
+    0%,
+    28% {
+        opacity: 0;
+        transform: translateY(-16px) scale(1.3) rotate(8deg);
+        filter: drop-shadow(0 0 0 rgba(255, 209, 102, 0));
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 4px 10px rgba(255, 209, 102, 0.65));
+    }
+
+    44% {
+        transform: translateY(-2px) scale(1.04);
+    }
+
+    48%,
+    80% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 2px 5px rgba(255, 209, 102, 0.35));
+    }
+
+    92%,
+    100% {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.92);
+        filter: drop-shadow(0 0 0 rgba(255, 209, 102, 0));
+    }
+}
+
+.logo-footprint-step-red {
+    animation: stepInRed 3.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    transform-origin: 78% 40%;
+    will-change: transform, opacity;
+}
+
+.logo-footprint-step-yellow {
+    animation: stepInYellow 3.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    transform-origin: 82% 75%;
+    will-change: transform, opacity;
+}
+
+.animated-school-logo:hover .logo-footprint-step-red {
+    animation-duration: 1.3s;
+}
+
+.animated-school-logo:hover .logo-footprint-step-yellow {
+    animation-duration: 1.3s;
+}
+
+/* Hero Section Walking Child Footprints */
+.hero-step-print {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+    transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes heroPillCelebration {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.08) translateY(-4px);
+        box-shadow: 0 15px 30px rgba(239, 71, 111, 0.4);
+    }
+
+    60% {
+        transform: scale(0.98) translateY(1px);
+    }
+
+    80% {
+        transform: scale(1.03);
+    }
+}
+
+.hero-pill-celebrate {
+    animation: heroPillCelebration 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS & TOUCH ENHANCEMENTS
+   ========================================================================== */
+
+/* Mobile Drawer Backdrop */
+.mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 45;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.mobile-menu-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#mobile-menu {
+    max-width: 82vw;
+    width: 320px;
+    z-index: 50;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Touch targets and iOS zoom safeguards */
+@media (max-width: 768px) {
+
+    /* Prevent iOS auto-zoom on input focus */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    /* Floating buttons repositioning to not block content on phones */
+    .floating-actions {
+        bottom: 14px;
+        right: 14px;
+        gap: 8px;
+        z-index: 40;
+    }
+
+    .floating-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    /* Safe container padding */
+    .fs-card {
+        padding: 1.25rem;
+    }
+
+    /* Mobile Lightbox Modal */
+    .lightbox-modal {
+        padding: 10px;
+    }
+
+    .lightbox-content {
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 20px !important;
+    }
+
+    .lightbox-content img {
+        max-height: 52vh !important;
+    }
+}
+
+/* ==========================================================================
+   TESTIMONIALS SINGLE-ROW INFINITE MARQUEE
+   ========================================================================== */
+.testimonials-marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 12px 0 20px;
+}
+
+.marquee-fade-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.marquee-fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.marquee-fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.testimonials-marquee-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+    white-space: nowrap;
+    padding: 12px 0;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.testimonials-marquee-container::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonials-marquee-track {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 24px;
+    width: max-content;
+    will-change: transform;
+    animation: marqueeTestimonialsScroll 38s linear infinite;
+}
+
+/* Pause animation on hover or when toggle is active */
+.testimonials-marquee-wrapper:hover .testimonials-marquee-track,
+.testimonials-marquee-track.is-paused {
+    animation-play-state: paused !important;
+}
+
+@keyframes marqueeTestimonialsScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Single-Row Feedback Card */
+.testimonial-marquee-card {
+    flex: 0 0 380px !important;
+    width: 380px !important;
+    max-width: 86vw !important;
+    white-space: normal !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 3px solid #FFF3E0;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.testimonial-marquee-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--fs-yellow);
+    box-shadow: 0 14px 32px rgba(255, 183, 3, 0.18);
+}
+
+/* Form Equalization & Submit Button Alignment */
+#tourContactForm textarea,
+#feedbackForm textarea {
+    font-family: inherit;
+}
